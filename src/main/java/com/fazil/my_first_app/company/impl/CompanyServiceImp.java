@@ -3,9 +3,11 @@ package com.fazil.my_first_app.company.impl;
 import com.fazil.my_first_app.company.Company;
 import com.fazil.my_first_app.company.CompanyRepository;
 import com.fazil.my_first_app.company.CompanyService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CompanyServiceImp implements CompanyService {
 
     private final CompanyRepository companyRepository;
