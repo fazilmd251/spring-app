@@ -1,9 +1,7 @@
 package com.fazil.my_first_app.job;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fazil.my_first_app.company.Company;
+import jakarta.persistence.*;
 
 @Entity
 public class Job {
@@ -16,6 +14,8 @@ public class Job {
     private String minSalary;
     private String maxSalary;
     private String location;
+    @ManyToOne
+    private Company company;
 
     public Job() {
     }
@@ -77,5 +77,13 @@ public class Job {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }

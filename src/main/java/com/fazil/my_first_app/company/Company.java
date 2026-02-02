@@ -1,9 +1,10 @@
 package com.fazil.my_first_app.company;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fazil.my_first_app.job.Job;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Company {
@@ -12,6 +13,11 @@ public class Company {
     private Long id;
 
     private String name;
+    private String description;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
+    private List<Job> jobs;
 
     public Company(){}
 
@@ -29,5 +35,21 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
     }
 }
